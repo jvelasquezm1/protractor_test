@@ -1,0 +1,22 @@
+{
+  "name": "protractor_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "del dist",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "test": "npm run build && protractor dist/protractor/config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine-spec-reporter": "^4.2.1",
+    "protractor": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/jasminewd2": "^2.0.3",
+    "typescript": "^3.0.3"
+  }
+}
