@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "jasmine-spec-reporter": "^4.2.1",
     "protractor": "^5.4.1"
   },

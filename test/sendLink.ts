@@ -12,18 +12,14 @@ describe('Given a SDET learning protractor', () => {
       element(by.id('email')).sendKeys(process.env.EMAIL);
       element(by.id('password')).sendKeys(process.env.PASSWORD);
       element(by.id('btnSubmit')).click();
-      var loc = by.tagName('iframe');
+      browser.get(`https://secure.logmein.com/mycomputers_preferences.asp?hostid=${process.env.HOSTEXAMPLE}&pcname=${process.env.PCNAME}`);
+      var loc = by.xpath('//*[@id="IFrameInCenterPanel"]');
       var el = browser.driver.findElement(loc);
       browser.switchTo().frame(el).then(
         async () => {
-          await browser.driver.findElement(by.id('availableSeatText')).getText().then(
-            text => console.log(text)
-          );
-          await browser.driver.findElement(by.id('addhost')).click();
-          await browser.driver.findElement(by.id('add-another-computer')).click();
-          await browser.driver.findElement(by.xpath('//*[@id="deployment-link"]')).getAttribute('value').then(
-            text => console.log(text)
-          );
+          await element(by.linkText('Acceso directo de escritorio')).click();
+          const link = await element(by.linkText(process.env.PCNAME)).getAttribute('href');
+          console.log(link)
         }
       );
     });
